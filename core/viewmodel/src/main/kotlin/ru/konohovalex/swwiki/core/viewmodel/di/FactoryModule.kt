@@ -8,7 +8,6 @@ import javax.inject.Singleton
 
 @Module
 internal interface FactoryModule {
-    @Binds
-    @Singleton
+    @[Binds Singleton]
     fun bindSavedStateViewModelFactory(impl: DaggerViewModelFactory): ViewModelProvider.Factory
 }

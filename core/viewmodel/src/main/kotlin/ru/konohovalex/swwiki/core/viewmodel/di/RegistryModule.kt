@@ -8,7 +8,6 @@ import javax.inject.Singleton
 
 @Module
 internal interface RegistryModule {
-    @Binds
-    @Singleton
+    @[Binds Singleton]
     fun bindSavedStateViewModelFactory(impl: ViewModelFactoryRegistryImpl): ViewModelFactoryRegistry
 }

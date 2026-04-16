@@ -3,11 +3,9 @@ package ru.konohovalex.swwiki.feature.character.common.data.impl.di
 import dagger.Component
 import ru.konohovalex.swwiki.core.cache.di.ICacheComponent
 import ru.konohovalex.swwiki.core.database.di.IDatabaseComponent
-import ru.konohovalex.swwiki.core.di.qualifier.FeatureScope
 import ru.konohovalex.swwiki.core.network.di.INetworkComponent
 import ru.konohovalex.swwiki.feature.character.common.domain.api.di.ICharacterDomainComponent
 
-@FeatureScope
 @Component(
     modules = [
         CharacterRepositoryModule::class,
