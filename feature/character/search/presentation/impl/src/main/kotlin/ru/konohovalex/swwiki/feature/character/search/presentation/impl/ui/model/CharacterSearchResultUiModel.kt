@@ -11,7 +11,7 @@ data class CharacterSearchResultUiModel(
     val eyeColor: String,
     val gender: GenderUiModel,
     val hairColor: String,
-    val height: Int,
-    val mass: Int,
+    val height: String,
+    val mass: String,
     val skinColor: String,
 )

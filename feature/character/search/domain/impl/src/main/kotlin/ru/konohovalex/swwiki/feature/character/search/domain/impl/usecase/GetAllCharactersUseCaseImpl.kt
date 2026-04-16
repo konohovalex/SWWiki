@@ -12,8 +12,7 @@ internal class GetAllCharactersUseCaseImpl
     private val characterRepository: CharacterRepository,
     private val charactersPagingModelToCharacterSearchResultPagingModelMapper: Mapper<CharactersPagingModel, CharacterSearchResultPagingModel>
 ) : GetAllCharactersUseCase {
-    override suspend operator fun invoke(page: Int): CharacterSearchResultPagingModel? =
-        characterRepository.getAllCharacters(page)?.let {
-            charactersPagingModelToCharacterSearchResultPagingModelMapper(it)
-        }
+    override suspend operator fun invoke(page: Int): CharacterSearchResultPagingModel =
+        characterRepository.getAllCharacters(page)
+            .let(charactersPagingModelToCharacterSearchResultPagingModelMapper::invoke)
 }

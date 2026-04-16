@@ -1,11 +1,13 @@
 <resources>
     <string name="core_ui_gender_male">Gender: male</string>
     <string name="core_ui_gender_female">Gender: female</string>
-    <string name="core_ui_gender_undefined">Gender: undefined</string>
+    <string name="core_ui_gender_hermaphrodite">Gender: hermaphrodite</string>
+    <string name="core_ui_gender_unavailable">Gender: unavailable</string>
+    <string name="core_ui_gender_none">Gender: none</string>
     <string name="core_ui_homeworld">Homeworld: %s</string>
     <string name="core_ui_birth_year">Birth year: %s</string>
-    <string name="core_ui_height">Height: %d cm</string>
-    <string name="core_ui_mass">Mass: %d kg</string>
+    <string name="core_ui_height">Height: %s cm</string>
+    <string name="core_ui_mass">Mass: %s kg</string>
     <string name="core_ui_eye_color">Eye color: %s</string>
     <string name="core_ui_hair_color">Hair color: %s</string>
     <string name="core_ui_skin_color">Skin color: %s</string>

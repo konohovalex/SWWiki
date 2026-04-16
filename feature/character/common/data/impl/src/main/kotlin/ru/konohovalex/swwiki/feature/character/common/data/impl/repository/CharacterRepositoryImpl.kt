@@ -23,8 +23,8 @@ internal class CharacterRepositoryImpl
     // TODO(implement)
 //    private val databaseRecordOutdatedUseCase: DatabaseRecordOutdatedUseCase<CharacterEntity>,
 ) : CharacterRepository {
-    override suspend fun getAllCharacters(page: Int): CharactersPagingModel? =
-        getAllRemoteCharacters(page)?.toCharacterPagingModel()
+    override suspend fun getAllCharacters(page: Int): CharactersPagingModel =
+        getAllRemoteCharacters(page).toCharacterPagingModel()
 
 
     override suspend fun getCharacter(id: Int): CharacterModel? {
@@ -39,17 +39,11 @@ internal class CharacterRepositoryImpl
         return getRemoteCharacter(id)?.cacheAndStore()
     }
 
-    override suspend fun findCharacters(page: Int, query: String): CharactersPagingModel? =
-        findAllRemoteCharacters(page, query)?.toCharacterPagingModel()
+    override suspend fun findCharacters(page: Int, query: String): CharactersPagingModel =
+        findAllRemoteCharacters(page, query).toCharacterPagingModel()
 
-    private suspend fun getAllRemoteCharacters(page: Int): CharactersPagingDto? =
-        try {
-            characterApi.getAllCharacters(page)
-        } catch (_: IOException) {
-            null
-        } catch (_: Throwable) {
-            null
-        }
+    private suspend fun getAllRemoteCharacters(page: Int): CharactersPagingDto =
+        characterApi.getAllCharacters(page)
 
     private suspend fun getRemoteCharacter(id: Int): CharacterDto? = try {
         characterApi.getCharacter(id)
@@ -59,14 +53,8 @@ internal class CharacterRepositoryImpl
         null
     }
 
-    private suspend fun findAllRemoteCharacters(page: Int, query: String): CharactersPagingDto? =
-        try {
-            characterApi.findCharacters(page, query)
-        } catch (_: IOException) {
-            null
-        } catch (_: Throwable) {
-            null
-        }
+    private suspend fun findAllRemoteCharacters(page: Int, query: String): CharactersPagingDto =
+        characterApi.findCharacters(page, query)
 
     private suspend fun CharacterDto.cacheAndStore() = dtoToEntityMapper(this).let {
         storeCharacters(it)

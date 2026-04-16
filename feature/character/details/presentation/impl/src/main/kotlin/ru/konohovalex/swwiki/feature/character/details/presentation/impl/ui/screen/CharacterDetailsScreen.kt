@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -227,8 +228,9 @@ private fun Species(species: List<CharacterDetailsUiModel.Specie>) {
                 text = stringResource(R.string.feature_character_details_presentation_impl_no_species),
             )
         } else {
-            // TODO(save position)
+            val listState = rememberLazyListState()
             LazyRow(
+                state = listState,
             ) {
                 items(
                     items = species,
@@ -246,8 +248,9 @@ private fun Species(species: List<CharacterDetailsUiModel.Specie>) {
 
 @Composable
 private fun Films(films: List<CharacterDetailsUiModel.Film>) {
-    // TODO(save position)
+    val listState = rememberLazyListState()
     LazyColumn(
+        state = listState,
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         items(
@@ -315,8 +318,8 @@ private fun CharacterDetailsScreenUiDataPreview() {
                     eyeColor = "Blue",
                     gender = GenderUiModel.MALE,
                     hairColor = "Blond",
-                    height = 172,
-                    mass = 77,
+                    height = "172",
+                    mass = "77",
                     skinColor = "Fair",
                     homeworld = "Tatooine",
                 ),

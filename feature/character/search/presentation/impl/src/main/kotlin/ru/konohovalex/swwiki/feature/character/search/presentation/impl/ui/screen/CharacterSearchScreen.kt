@@ -10,20 +10,27 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.LoadState
+import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import ru.konohovalex.swwiki.core.navigation.LocalNavigator
@@ -34,7 +41,6 @@ import ru.konohovalex.swwiki.core.ui.composable.TopAppBar
 import ru.konohovalex.swwiki.feature.character.details.presentation.api.navigation.CharacterDetailsNavKey
 import ru.konohovalex.swwiki.feature.character.search.presentation.impl.R
 import ru.konohovalex.swwiki.feature.character.search.presentation.impl.ui.model.CharacterSearchResultUiModel
-import ru.konohovalex.swwiki.feature.character.search.presentation.impl.ui.model.CharacterSearchUiState
 import ru.konohovalex.swwiki.feature.character.search.presentation.impl.viewmodel.CharacterSearchViewModel
 import ru.konohovalex.swwiki.core.ui.R as CoreUiR
 
@@ -47,9 +53,9 @@ fun CharacterSearchScreen(
         modelClass = CharacterSearchViewModel::class,
         factory = viewModelFactory,
     )
-    val uiState = viewModel.uiState.collectAsState()
+    val pagingItems = viewModel.pagingData.collectAsLazyPagingItems()
     CharacterSearchUi(
-        characterSearchUiState = uiState.value,
+        pagingItems = pagingItems,
         onCharacterClick = {
             navigator.perform(
                 NavigationCommand.NavigateTo(
@@ -63,19 +69,15 @@ fun CharacterSearchScreen(
         onBackAction = {
             navigator.perform(NavigationCommand.GoBack)
         },
-        onRetryClick = {
-            viewModel.retry()
-        },
     )
 }
 
 @Composable
 private fun CharacterSearchUi(
-    characterSearchUiState: CharacterSearchUiState,
+    pagingItems: LazyPagingItems<CharacterSearchResultUiModel>,
     onCharacterClick: (CharacterSearchResultUiModel) -> Unit,
     onQueryChanged: (String) -> Unit,
     onBackAction: () -> Unit,
-    onRetryClick: () -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -85,46 +87,52 @@ private fun CharacterSearchUi(
             )
         },
     ) { paddingValues ->
+        val listState = rememberLazyListState()
+        var query by remember { mutableStateOf("") }
+
         Column(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize(),
         ) {
+            // TODO(drops on back)
             SearchField(
-                value = "",
-                onValueChange = onQueryChanged,
+                value = query,
+                onValueChange = {
+                    query = it
+                    onQueryChanged(it)
+                },
                 placeholder = stringResource(R.string.feature_character_search_presentation_impl_search_placeholder),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
             )
-            val lazyCharacters = characterSearchUiState.pagingData.collectAsLazyPagingItems()
-            // TODO(save position)
             LazyColumn(
+                state = listState,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
+                    .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 items(
-                    count = lazyCharacters.itemCount,
-                    key = lazyCharacters.itemKey { it.id },
+                    count = pagingItems.itemCount,
+                    key = pagingItems.itemKey { it.id },
                 ) { index ->
-                    lazyCharacters[index]?.let {
+                    pagingItems[index]?.let {
                         CharacterCard(it, onCharacterClick)
                     }
                 }
 
-                // Индикатор начальной загрузки
-                if (lazyCharacters.loadState.refresh is LoadState.Loading) {
-                    item {
-                        LoadingState(Modifier.fillMaxSize())
-                    }
+                if (pagingItems.loadState.refresh is LoadState.Loading) {
+                    item { LoadingItem(Modifier.fillMaxSize()) }
                 }
 
-                // Индикатор дозагрузки следующей страницы
-                if (lazyCharacters.loadState.append is LoadState.Loading) {
-                    item { LoadingState(Modifier.fillMaxWidth()) }
+                if (pagingItems.loadState.append is LoadState.Loading) {
+                    item { LoadingItem(Modifier.fillMaxWidth()) }
+                }
+
+                if (pagingItems.loadState.append is LoadState.Error) {
+                    item { RetryItem { pagingItems.retry() } }
                 }
             }
         }
@@ -132,12 +140,28 @@ private fun CharacterSearchUi(
 }
 
 @Composable
-private fun LoadingState(modifier: Modifier) {
+private fun LoadingItem(modifier: Modifier) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
     ) {
         CircularProgressIndicator()
+    }
+}
+
+@Composable
+private fun RetryItem(onClick: () -> Unit) {
+    TextButton(
+        onClick = onClick,
+        modifier = Modifier
+            .fillMaxWidth(),
+    ) {
+        Text(
+            modifier = Modifier
+                .fillMaxWidth(),
+            textAlign = TextAlign.Center,
+            text = stringResource(CoreUiR.string.core_ui_default_retry),
+        )
     }
 }
 

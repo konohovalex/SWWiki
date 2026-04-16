@@ -14,8 +14,8 @@ data class CharacterDetailsModel(
         val eyeColor: String,
         val gender: Int,
         val hairColor: String,
-        val height: Int,
-        val mass: Int,
+        val height: String,
+        val mass: String,
         val skinColor: String,
         val homeworld: String?,
     )

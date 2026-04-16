@@ -14,8 +14,8 @@ data class CharacterDto(
     val gender: Gender,
     @SerialName("hair_color")
     val hairColor: String,
-    val height: Int,
-    val mass: Int,
+    val height: String,
+    val mass: String,
     @SerialName("skin_color")
     val skinColor: String,
     @SerialName("homeworld")
@@ -40,8 +40,14 @@ data class CharacterDto(
         @SerialName("female")
         FEMALE,
 
+        @SerialName("hermaphrodite")
+        HERMAPHRODITE,
+
         @SerialName("n/a")
-        UNDEFINED,
+        NOT_AVAILABLE,
+
+        @SerialName("none")
+        NONE,
     }
 
 }

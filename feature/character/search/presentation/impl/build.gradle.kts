@@ -14,7 +14,6 @@ android {
 }
 
 dependencies(
-    Implementation(projects.core.coroutines),
     Implementation(projects.core.di),
     Implementation(projects.core.functional),
     Implementation(projects.core.navigation),

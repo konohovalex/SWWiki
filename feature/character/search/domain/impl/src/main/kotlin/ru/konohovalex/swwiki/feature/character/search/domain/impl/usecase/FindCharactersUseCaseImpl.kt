@@ -15,8 +15,7 @@ internal class FindCharactersUseCaseImpl
     override suspend operator fun invoke(
         page: Int,
         query: String,
-    ): CharacterSearchResultPagingModel? =
-        characterRepository.findCharacters(page, query)?.let {
-            charactersPagingModelToCharacterSearchResultPagingModelMapper(it)
-        }
+    ): CharacterSearchResultPagingModel =
+        characterRepository.findCharacters(page, query)
+            .let(charactersPagingModelToCharacterSearchResultPagingModelMapper::invoke)
 }
