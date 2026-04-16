@@ -1,4 +1,4 @@
-package ru.konohovalex.swwiki.feature.main.impl.presentation
+package ru.konohovalex.swwiki.feature.main.impl.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import kotlinx.collections.immutable.toPersistentList
@@ -11,7 +11,7 @@ import ru.konohovalex.swwiki.feature.main.impl.presentation.model.MainUiState
 import ru.konohovalex.swwiki.feature.main.impl.presentation.model.TopicUiModel
 import javax.inject.Inject
 
-class MainViewModel
+class MainScreenViewModel
 @Inject constructor(
     private val topicRepository: TopicRepository,
     private val topicToTopicUiModelMapper: Mapper<Topic, TopicUiModel>,

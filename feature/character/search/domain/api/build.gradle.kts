@@ -1,3 +1,4 @@
+import ru.konohovalex.swwiki.utils.Implementation
 import ru.konohovalex.swwiki.utils.dependencies
 
 plugins {
@@ -9,4 +10,5 @@ android {
 }
 
 dependencies(
+    Implementation(projects.core.di),
 )

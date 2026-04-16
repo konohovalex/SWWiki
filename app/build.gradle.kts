@@ -1,4 +1,3 @@
-import ru.konohovalex.swwiki.utils.Api
 import ru.konohovalex.swwiki.utils.Implementation
 import ru.konohovalex.swwiki.utils.SWWikiBuildType
 import ru.konohovalex.swwiki.utils.dependencies
@@ -41,10 +40,11 @@ android {
 dependencies(
     Implementation(projects.core.cache),
     Implementation(projects.core.database),
+    Implementation(projects.core.di),
     Implementation(projects.core.navigation),
     Implementation(projects.core.network),
     Implementation(projects.core.servicelocator),
     Implementation(projects.core.viewmodel),
 
-    Api(projects.feature.main.impl),
+    Implementation(projects.feature.main.impl),
 )

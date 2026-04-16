@@ -1,19 +1,19 @@
 package ru.konohovalex.swwiki
 
 import android.app.Application
-import ru.konohovalex.swwiki.core.cache.di.CacheComponent
-import ru.konohovalex.swwiki.core.cache.di.DaggerCacheComponent
-import ru.konohovalex.swwiki.core.database.di.DaggerDatabaseComponent
-import ru.konohovalex.swwiki.core.database.di.DatabaseComponent
-import ru.konohovalex.swwiki.core.navigation.di.DaggerNavigationComponent
-import ru.konohovalex.swwiki.core.navigation.di.NavigationComponent
-import ru.konohovalex.swwiki.core.network.di.DaggerNetworkComponent
-import ru.konohovalex.swwiki.core.network.di.NetworkComponent
+import ru.konohovalex.swwiki.core.cache.di.ICacheComponent
+import ru.konohovalex.swwiki.core.cache.di.initializer.CacheComponentInitializer
+import ru.konohovalex.swwiki.core.database.di.IDatabaseComponent
+import ru.konohovalex.swwiki.core.database.di.initializer.DatabaseComponentInitializer
+import ru.konohovalex.swwiki.core.navigation.di.INavigationComponent
+import ru.konohovalex.swwiki.core.navigation.di.initializer.NavigationComponentInitializer
+import ru.konohovalex.swwiki.core.network.di.INetworkComponent
+import ru.konohovalex.swwiki.core.network.di.initializer.NetworkComponentInitializer
 import ru.konohovalex.swwiki.core.servicelocator.MapRegistryServiceLocator
 import ru.konohovalex.swwiki.core.servicelocator.ServiceLocator
 import ru.konohovalex.swwiki.core.servicelocator.registry.MapRegistryBuilder
-import ru.konohovalex.swwiki.core.viewmodel.di.DaggerViewModelComponent
-import ru.konohovalex.swwiki.core.viewmodel.di.ViewModelComponent
+import ru.konohovalex.swwiki.core.viewmodel.di.IViewModelComponent
+import ru.konohovalex.swwiki.core.viewmodel.di.initializer.ViewModelComponentInitializer
 import kotlin.reflect.KClass
 
 // TODO(clean everything up: unnecessary entities, libs, modules, plugins, tests dirs, etc.)
@@ -31,22 +31,20 @@ class SWWikiApp : Application(), ServiceLocator {
         super.onCreate()
 
         serviceLocator = MapRegistryBuilder()
-            .bind(CacheComponent::class) {
-                DaggerCacheComponent.create()
+            .bind(ICacheComponent::class) {
+                CacheComponentInitializer().initialize()
             }
-            .bind(DatabaseComponent::class) {
-                DaggerDatabaseComponent.builder()
-                    .applicationContext(this@SWWikiApp)
-                    .build()
+            .bind(IDatabaseComponent::class) {
+                DatabaseComponentInitializer(this@SWWikiApp).initialize()
             }
-            .bind(NavigationComponent::class) {
-                DaggerNavigationComponent.create()
+            .bind(INavigationComponent::class) {
+                NavigationComponentInitializer().initialize()
             }
-            .bind(NetworkComponent::class) {
-                DaggerNetworkComponent.create()
+            .bind(INetworkComponent::class) {
+                NetworkComponentInitializer().initialize()
             }
-            .bind(ViewModelComponent::class) {
-                DaggerViewModelComponent.create()
+            .bind(IViewModelComponent::class) {
+                ViewModelComponentInitializer().initialize()
             }
             .build()
     }

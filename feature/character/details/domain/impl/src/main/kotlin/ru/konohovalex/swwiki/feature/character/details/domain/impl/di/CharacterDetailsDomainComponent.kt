@@ -23,7 +23,7 @@ import ru.konohovalex.swwiki.feature.vehicle.common.domain.api.di.IVehicleDomain
         IVehicleDomainComponent::class,
     ],
 )
-interface CharacterDetailsDomainComponent : ICharacterDetailsDomainComponent {
+internal interface CharacterDetailsDomainComponent : ICharacterDetailsDomainComponent {
     @Component.Builder
     interface Builder {
         fun characterDomainComponent(component: ICharacterDomainComponent): Builder

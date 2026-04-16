@@ -1,25 +1,26 @@
 package ru.konohovalex.swwiki.feature.main.impl.presentation.di
 
+import dagger.BindsInstance
 import dagger.Component
-import ru.konohovalex.swwiki.feature.main.impl.domain.di.MainDomainComponent
-import ru.konohovalex.swwiki.feature.main.impl.presentation.MainViewModel
-import javax.inject.Provider
+import ru.konohovalex.swwiki.core.servicelocator.ServiceLocator
+import ru.konohovalex.swwiki.feature.main.impl.domain.di.IMainDomainComponent
 
 @Component(
     modules = [
         MainUiMapperModule::class,
         MainViewModelModule::class,
+        NavigationModule::class,
     ],
     dependencies = [
-        MainDomainComponent::class,
+        IMainDomainComponent::class,
     ],
 )
-interface MainPresentationComponent {
-    fun mainViewModelProvider(): Provider<MainViewModel>
-
+internal interface MainPresentationComponent : IMainPresentationComponent {
     @Component.Builder
     interface Builder {
-        fun mainDomainComponent(component: MainDomainComponent): Builder
+        fun serviceLocator(@BindsInstance serviceLocator: ServiceLocator): Builder
+
+        fun mainDomainComponent(component: IMainDomainComponent): Builder
 
         fun build(): MainPresentationComponent
     }

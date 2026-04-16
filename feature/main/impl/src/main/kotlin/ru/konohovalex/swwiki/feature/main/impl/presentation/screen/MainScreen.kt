@@ -32,14 +32,14 @@ import ru.konohovalex.swwiki.core.navigation.LocalNavigator
 import ru.konohovalex.swwiki.core.navigation.model.NavigationCommand
 import ru.konohovalex.swwiki.feature.character.search.presentation.api.navigation.CharacterSearchNavKey
 import ru.konohovalex.swwiki.feature.main.api.R
-import ru.konohovalex.swwiki.feature.main.impl.presentation.MainViewModel
+import ru.konohovalex.swwiki.feature.main.impl.presentation.viewmodel.MainScreenViewModel
 import ru.konohovalex.swwiki.feature.main.impl.presentation.model.MainUiState
 import ru.konohovalex.swwiki.feature.main.impl.presentation.model.TopicUiModel
 
 @Composable
 fun MainScreen(viewModelFactory: ViewModelProvider.Factory) {
     val navigator = LocalNavigator.current
-    val viewModel = viewModel(modelClass = MainViewModel::class, factory = viewModelFactory)
+    val viewModel = viewModel(modelClass = MainScreenViewModel::class, factory = viewModelFactory)
     val state = viewModel.state.collectAsState()
     Content(state.value) {
         navigator.perform(NavigationCommand.NavigateTo(CharacterSearchNavKey))

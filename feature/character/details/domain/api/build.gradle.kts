@@ -11,6 +11,7 @@ android {
 }
 
 dependencies(
+    Implementation(projects.core.di),
     Implementation(projects.core.functional),
     Implementation(projects.core.network),
 

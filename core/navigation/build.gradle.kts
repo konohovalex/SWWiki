@@ -13,6 +13,7 @@ android {
 }
 
 dependencies(
+    Implementation(projects.core.di),
     Implementation(projects.core.viewmodel),
 
     Implementation(libs.androidx.navigation3.runtime),

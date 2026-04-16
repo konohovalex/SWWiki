@@ -18,7 +18,7 @@ import ru.konohovalex.swwiki.feature.starship.common.domain.api.model.StarshipMo
 import ru.konohovalex.swwiki.feature.vehicle.common.domain.api.model.VehicleModel
 
 @Module
-interface CharacterDetailsDomainMapperModule {
+internal interface CharacterDetailsDomainMapperModule {
     @Binds
     fun bindCharacterModelToCharacterDetailsBasicInformationMapper(
         impl: CharacterModelToCharacterDetailsBasicInformationMapper,

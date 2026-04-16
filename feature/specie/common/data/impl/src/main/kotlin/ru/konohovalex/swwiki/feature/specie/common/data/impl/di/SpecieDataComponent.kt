@@ -1,10 +1,10 @@
 package ru.konohovalex.swwiki.feature.specie.common.data.impl.di
 
 import dagger.Component
-import ru.konohovalex.swwiki.core.cache.di.CacheComponent
-import ru.konohovalex.swwiki.core.database.di.DatabaseComponent
+import ru.konohovalex.swwiki.core.cache.di.ICacheComponent
+import ru.konohovalex.swwiki.core.database.di.IDatabaseComponent
 import ru.konohovalex.swwiki.core.di.qualifier.FeatureScope
-import ru.konohovalex.swwiki.core.network.di.NetworkComponent
+import ru.konohovalex.swwiki.core.network.di.INetworkComponent
 import ru.konohovalex.swwiki.feature.specie.common.domain.api.di.ISpecieDomainComponent
 
 @FeatureScope
@@ -14,19 +14,19 @@ import ru.konohovalex.swwiki.feature.specie.common.domain.api.di.ISpecieDomainCo
         SpecieRepositoryModule::class,
     ],
     dependencies = [
-        CacheComponent::class,
-        DatabaseComponent::class,
-        NetworkComponent::class,
+        ICacheComponent::class,
+        IDatabaseComponent::class,
+        INetworkComponent::class,
     ],
 )
-interface SpecieDataComponent : ISpecieDomainComponent {
+internal interface SpecieDataComponent : ISpecieDomainComponent {
     @Component.Builder
     interface Builder {
-        fun cacheComponent(cacheComponent: CacheComponent): Builder
+        fun cacheComponent(cacheComponent: ICacheComponent): Builder
 
-        fun databaseComponent(databaseComponent: DatabaseComponent): Builder
+        fun databaseComponent(databaseComponent: IDatabaseComponent): Builder
 
-        fun networkComponent(networkComponent: NetworkComponent): Builder
+        fun networkComponent(networkComponent: INetworkComponent): Builder
 
         fun build(): SpecieDataComponent
     }

@@ -1,9 +1,7 @@
 package ru.konohovalex.swwiki.feature.character.details.presentation.impl.di
 
 import dagger.Component
-import ru.konohovalex.swwiki.core.viewmodel.assisted.AssistedViewModelFactory
 import ru.konohovalex.swwiki.feature.character.details.domain.api.di.ICharacterDetailsDomainComponent
-import ru.konohovalex.swwiki.feature.character.details.presentation.impl.viewmodel.CharacterDetailsViewModel
 
 @Component(
     modules = [
@@ -14,9 +12,7 @@ import ru.konohovalex.swwiki.feature.character.details.presentation.impl.viewmod
         ICharacterDetailsDomainComponent::class,
     ]
 )
-interface CharacterDetailsPresentationComponent {
-    fun characterDetailsViewModel(): AssistedViewModelFactory<CharacterDetailsViewModel>
-
+internal interface CharacterDetailsPresentationComponent : ICharacterDetailsPresentationComponent {
     @Component.Builder
     interface Builder {
         fun characterDetailsDomainComponent(component: ICharacterDetailsDomainComponent): Builder

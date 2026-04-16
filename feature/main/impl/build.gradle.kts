@@ -17,6 +17,7 @@ android {
 dependencies(
     Implementation(projects.core.cache),
     Implementation(projects.core.database),
+    Implementation(projects.core.di),
     Implementation(projects.core.functional),
     Implementation(projects.core.navigation),
     Implementation(projects.core.network),

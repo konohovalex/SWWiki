@@ -19,6 +19,7 @@ dependencies(
     Implementation(projects.core.di),
     Implementation(projects.core.functional),
     Implementation(projects.core.navigation),
+    Implementation(projects.core.servicelocator),
     Implementation(projects.core.ui),
     Implementation(projects.core.viewmodel),
 

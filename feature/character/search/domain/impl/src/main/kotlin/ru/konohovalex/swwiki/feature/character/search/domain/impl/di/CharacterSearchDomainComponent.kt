@@ -13,7 +13,7 @@ import ru.konohovalex.swwiki.feature.character.search.domain.api.di.ICharacterSe
         ICharacterDomainComponent::class,
     ],
 )
-interface CharacterSearchDomainComponent : ICharacterSearchDomainComponent {
+internal interface CharacterSearchDomainComponent : ICharacterSearchDomainComponent {
     @Component.Builder
     interface Builder {
         fun characterDomainComponent(component: ICharacterDomainComponent): Builder

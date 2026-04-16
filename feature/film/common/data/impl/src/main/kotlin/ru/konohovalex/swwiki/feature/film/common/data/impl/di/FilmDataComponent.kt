@@ -1,10 +1,10 @@
 package ru.konohovalex.swwiki.feature.film.common.data.impl.di
 
 import dagger.Component
-import ru.konohovalex.swwiki.core.cache.di.CacheComponent
-import ru.konohovalex.swwiki.core.database.di.DatabaseComponent
+import ru.konohovalex.swwiki.core.cache.di.ICacheComponent
+import ru.konohovalex.swwiki.core.database.di.IDatabaseComponent
 import ru.konohovalex.swwiki.core.di.qualifier.FeatureScope
-import ru.konohovalex.swwiki.core.network.di.NetworkComponent
+import ru.konohovalex.swwiki.core.network.di.INetworkComponent
 import ru.konohovalex.swwiki.feature.film.common.domain.api.IFilmDomainComponent
 
 @FeatureScope
@@ -14,19 +14,19 @@ import ru.konohovalex.swwiki.feature.film.common.domain.api.IFilmDomainComponent
         FilmRepositoryModule::class,
     ],
     dependencies = [
-        CacheComponent::class,
-        DatabaseComponent::class,
-        NetworkComponent::class,
+        ICacheComponent::class,
+        IDatabaseComponent::class,
+        INetworkComponent::class,
     ],
 )
-interface FilmDataComponent : IFilmDomainComponent {
+internal interface FilmDataComponent : IFilmDomainComponent {
     @Component.Builder
     interface Builder {
-        fun cacheComponent(cacheComponent: CacheComponent): Builder
+        fun cacheComponent(cacheComponent: ICacheComponent): Builder
 
-        fun databaseComponent(databaseComponent: DatabaseComponent): Builder
+        fun databaseComponent(databaseComponent: IDatabaseComponent): Builder
 
-        fun networkComponent(networkComponent: NetworkComponent): Builder
+        fun networkComponent(networkComponent: INetworkComponent): Builder
 
         fun build(): FilmDataComponent
     }
