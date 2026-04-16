@@ -1,4 +1,3 @@
-import ru.konohovalex.swwiki.utils.Api
 import ru.konohovalex.swwiki.utils.Implementation
 import ru.konohovalex.swwiki.utils.dependencies
 
@@ -16,5 +15,5 @@ dependencies(
     Implementation(projects.core.functional),
     Implementation(projects.core.di),
 
-    Api(projects.feature.specie.search.domain.api),
+    Implementation(projects.feature.specie.search.domain.api),
 )

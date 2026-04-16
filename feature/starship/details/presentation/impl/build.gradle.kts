@@ -1,4 +1,3 @@
-import ru.konohovalex.swwiki.utils.Api
 import ru.konohovalex.swwiki.utils.Implementation
 import ru.konohovalex.swwiki.utils.dependencies
 
@@ -19,6 +18,6 @@ dependencies(
     Implementation(projects.core.di),
     Implementation(projects.core.ui),
 
-    Api(projects.feature.starship.details.domain.api),
-    Api(projects.feature.starship.details.presentation.api),
+    Implementation(projects.feature.starship.details.domain.api),
+    Implementation(projects.feature.starship.details.presentation.api),
 )

@@ -1,6 +1,5 @@
-import ru.konohovalex.swwiki.utils.Api
-import ru.konohovalex.swwiki.utils.dependencies
 import ru.konohovalex.swwiki.utils.Implementation
+import ru.konohovalex.swwiki.utils.dependencies
 
 plugins {
     alias(libs.plugins.swwiki.android.feature.impl)
@@ -19,5 +18,5 @@ dependencies(
     Implementation(projects.core.di),
     Implementation(projects.core.ui),
 
-    Api(projects.feature.planet.search.presentation.api),
+    Implementation(projects.feature.planet.search.presentation.api),
 )

@@ -1,4 +1,3 @@
-import ru.konohovalex.swwiki.utils.Api
 import ru.konohovalex.swwiki.utils.Implementation
 import ru.konohovalex.swwiki.utils.dependencies
 
@@ -20,11 +19,11 @@ dependencies(
     Implementation(projects.core.functional),
     Implementation(projects.core.network),
 
-    Api(projects.feature.character.common.domain.api),
-    Api(projects.feature.film.common.domain.api),
-    Api(projects.feature.planet.common.domain.api),
-    Api(projects.feature.specie.common.domain.api),
-    Api(projects.feature.starship.common.domain.api),
-    Api(projects.feature.vehicle.common.domain.api),
-    Api(projects.feature.character.details.domain.api),
+    Implementation(projects.feature.character.common.domain.api),
+    Implementation(projects.feature.film.common.domain.api),
+    Implementation(projects.feature.planet.common.domain.api),
+    Implementation(projects.feature.specie.common.domain.api),
+    Implementation(projects.feature.starship.common.domain.api),
+    Implementation(projects.feature.vehicle.common.domain.api),
+    Implementation(projects.feature.character.details.domain.api),
 )

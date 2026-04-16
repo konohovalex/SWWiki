@@ -1,4 +1,3 @@
-import ru.konohovalex.swwiki.utils.Api
 import ru.konohovalex.swwiki.utils.Implementation
 import ru.konohovalex.swwiki.utils.dependencies
 
@@ -19,6 +18,6 @@ dependencies(
     Implementation(projects.core.functional),
     Implementation(projects.core.network),
 
-    Api(projects.feature.character.common.data.api),
-    Api(projects.feature.character.common.domain.api),
+    Implementation(projects.feature.character.common.data.api),
+    Implementation(projects.feature.character.common.domain.api),
 )

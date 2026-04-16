@@ -1,4 +1,3 @@
-import ru.konohovalex.swwiki.utils.Api
 import ru.konohovalex.swwiki.utils.Implementation
 import ru.konohovalex.swwiki.utils.dependencies
 
@@ -18,5 +17,5 @@ dependencies(
     Implementation(projects.core.functional),
     Implementation(projects.core.network),
 
-    Api(projects.feature.planet.details.domain.api),
+    Implementation(projects.feature.planet.details.domain.api),
 )

@@ -19,7 +19,6 @@ import kotlin.reflect.KClass
 // TODO(clean everything up: unnecessary entities, libs, modules, plugins, tests dirs, etc.)
 // TODO(splash screen)
 // TODO(swipe-to-refresh)
-// TODO(build files with correct dependency types - try to reduce amount of api() Gradle dependencies between features)
 // TODO(LAZY!!!)
 // TODO(SCOPES + Singleton => AppScope)
 // TODO(check data classes, which should not be data classes)

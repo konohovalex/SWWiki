@@ -1,4 +1,3 @@
-import ru.konohovalex.swwiki.utils.Api
 import ru.konohovalex.swwiki.utils.Implementation
 import ru.konohovalex.swwiki.utils.dependencies
 
@@ -23,8 +22,8 @@ dependencies(
     Implementation(projects.core.ui),
     Implementation(projects.core.viewmodel),
 
-    Api(projects.feature.character.details.domain.api),
-    Api(projects.feature.character.details.presentation.api),
+    Implementation(projects.feature.character.details.domain.api),
+    Implementation(projects.feature.character.details.presentation.api),
 
     Implementation(libs.androidx.navigation3.runtime),
     Implementation(libs.androidx.navigation3.ui),

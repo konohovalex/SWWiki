@@ -1,6 +1,5 @@
-import ru.konohovalex.swwiki.utils.Api
-import ru.konohovalex.swwiki.utils.dependencies
 import ru.konohovalex.swwiki.utils.Implementation
+import ru.konohovalex.swwiki.utils.dependencies
 
 plugins {
     alias(libs.plugins.swwiki.android.feature.impl)
@@ -22,9 +21,9 @@ dependencies(
     Implementation(projects.core.ui),
     Implementation(projects.core.viewmodel),
 
-    Api(projects.feature.character.details.presentation.api),
-    Api(projects.feature.character.search.domain.api),
-    Api(projects.feature.character.search.presentation.api),
+    Implementation(projects.feature.character.details.presentation.api),
+    Implementation(projects.feature.character.search.domain.api),
+    Implementation(projects.feature.character.search.presentation.api),
 
     Implementation(libs.androidx.navigation3.runtime),
     Implementation(libs.androidx.navigation3.ui),

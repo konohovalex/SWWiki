@@ -1,4 +1,3 @@
-import ru.konohovalex.swwiki.utils.Api
 import ru.konohovalex.swwiki.utils.Implementation
 import ru.konohovalex.swwiki.utils.dependencies
 
@@ -15,7 +14,7 @@ android {
 dependencies(
     Implementation(projects.swwiki.core.functional),
 
-    Api(projects.feature.starship.common.domain.api),
+    Implementation(projects.feature.starship.common.domain.api),
 
     Implementation(libs.retrofit),
 )
