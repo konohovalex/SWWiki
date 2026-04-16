@@ -1,0 +1,150 @@
+[versions]
+kotlin = "2.3.20"
+dateTime = "0.7.1"
+serializationJson = "1.10.0"
+coroutines = "1.10.2"
+immutableCollections = "0.4.0"
+ksp = "2.3.4"
+
+composeBom = "2026.03.01"
+
+androidGradlePlugin = "9.0.1"
+androidTools = "32.1.0"
+annotationJvm = "1.10.0"
+material = "1.13.0"
+appcompat = "1.7.1"
+coreKtx = "1.18.0"
+lifecycle = "2.10.0"
+activityCompose = "1.13.0"
+navigation3 = "1.1.0"
+paging = "3.4.2"
+
+room = "2.8.4"
+
+dagger2 = "2.59.2"
+
+retrofit = "3.0.0"
+okhttp = "4.12.0"
+
+decompose = "3.5.0"
+
+junit = "4.13.2"
+androidJUnit = "1.3.0"
+espressoCore = "3.7.0"
+
+# --- Names must be changed with build-logic.convention.utils.LibraryNames simultaneously
+[libraries]
+# Kotlin
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+# KotlinX
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "dateTime" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serializationJson" }
+kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "immutableCollections" }
+# Coroutines
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+
+# Android
+android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# AndroidX
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version.ref = "annotationJvm" }
+# Lifecycle
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-testing = { group = "androidx.lifecycle", name = "lifecycle-runtime-testing", version.ref = "lifecycle" }
+androidx-lifecycle-viewModel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewModel-savedstate = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-savedstate", version.ref = "lifecycle" }
+androidx-lifecycle-viewModel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewModel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "lifecycle" }
+androidx-lifecycle-viewModel-testing = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-testing", version.ref = "lifecycle" }
+# Navigation
+androidx-navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "navigation3" }
+androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "navigation3" }
+# Paging
+androidx-paging-runtimeKtx = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging" }
+androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
+# Compose
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-annotation = { group = "androidx.compose.runtime", name = "runtime-annotation" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+# JUnit
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidJUnit" }
+
+# Room
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+
+# Dagger
+dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger2" }
+dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger2" }
+
+# Rest
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-kotlinxSerialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofit" }
+
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logginginterceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+# Decompose
+decompose = { group ="com.arkivanov.decompose", name = "decompose", version.ref = "decompose" }
+decompose-jetpack = { group ="com.arkivanov.decompose", name = "jetpack-component-context", version.ref = "decompose" }
+decompose-compose = { group ="com.arkivanov.decompose", name = "extensions-compose", version.ref = "decompose" }
+
+# JUnit
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+
+# --- Dependencies of the included build-logic
+# Kotlin
+kotlin-compose-gradle = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-ksp-gradle = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+# Android
+android-gradle = { group = "com.android.tools.build", name = "gradle-api", version.ref = "androidGradlePlugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+# AndroidX
+# Room
+androidx-room-gradle = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
+
+# --- Names must be changed with build-logic.convention.utils.PluginNames simultaneously
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
+
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+# Room
+androidx-room = { id = "androidx.room", version.ref = "room" }
+
+# --- Convention plugins
+swwiki-jvm-library = { id = "swwiki.jvm.library" }
+swwiki-kotlin-coroutines = { id = "swwiki.kotlin.coroutines" }
+swwiki-kotlin-coroutines-android = { id = "swwiki.kotlin.coroutines.android" }
+swwiki-dagger = { id = "swwiki.dagger" }
+swwiki-android-application = { id = "swwiki.android.application" }
+swwiki-android-application-flavors = { id = "swwiki.android.application.flavors" }
+swwiki-android-library = { id = "swwiki.android.library" }
+swwiki-android-feature-api = { id = "swwiki.android.feature.api" }
+swwiki-android-feature-impl = { id = "swwiki.android.feature.impl" }
+swwiki-android-application-compose = { id = "swwiki.android.application.compose" }
+swwiki-android-library-compose = { id = "swwiki.android.library.compose" }
+swwiki-android-lifecycle = { id = "swwiki.android.lifecycle" }
+swwiki-android-room = { id = "swwiki.android.room" }
+swwiki-android-test = { id = "swwiki.android.test" }

@@ -1,0 +1,7 @@
+<resources>
+    <string name="feature_character_search_presentation_impl_title">Star Wars Characters</string>
+    <string name="feature_character_search_presentation_impl_search_placeholder">Search characters…</string>
+    <string name="feature_character_search_presentation_impl_nothing_found">No characters found</string>
+    <string name="feature_character_search_presentation_impl_error_description">Error occurred</string>
+    <string name="feature_character_search_presentation_impl_content_description_show_character">Show character</string>
+</resources>

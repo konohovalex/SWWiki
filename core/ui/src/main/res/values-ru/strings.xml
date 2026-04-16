@@ -1,0 +1,15 @@
+<resources>
+    <string name="core_ui_gender_male">Пол: мужской</string>
+    <string name="core_ui_gender_female">Пол: женский</string>
+    <string name="core_ui_gender_undefined">Пол: отсутствует</string>
+    <string name="core_ui_homeworld">Родная планета: %s</string>
+    <string name="core_ui_birth_year">Год рождения: %s</string>
+    <string name="core_ui_height">Рост: %d см</string>
+    <string name="core_ui_mass">Вес: %d кг</string>
+    <string name="core_ui_eye_color">Цвет глаз: %s</string>
+    <string name="core_ui_hair_color">Цвет волос: %s</string>
+    <string name="core_ui_skin_color">Цвет кожи: %s</string>
+    <string name="core_ui_default_error">Произошла ошибка</string>
+    <string name="core_ui_default_retry">Повторить</string>
+    <string name="core_ui_content_description_back">Назад</string>
+</resources>

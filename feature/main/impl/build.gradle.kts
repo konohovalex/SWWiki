@@ -1,0 +1,57 @@
+import ru.konohovalex.swwiki.utils.Api
+import ru.konohovalex.swwiki.utils.Implementation
+import ru.konohovalex.swwiki.utils.dependencies
+
+plugins {
+    alias(libs.plugins.swwiki.android.feature.impl)
+
+    alias(libs.plugins.swwiki.dagger)
+    alias(libs.plugins.swwiki.android.lifecycle)
+    alias(libs.plugins.swwiki.android.library.compose)
+}
+
+android {
+    namespace = "ru.konohovalex.swwiki.feature.main.impl"
+}
+
+dependencies(
+    Implementation(projects.core.cache),
+    Implementation(projects.core.database),
+    Implementation(projects.core.functional),
+    Implementation(projects.core.navigation),
+    Implementation(projects.core.network),
+    Implementation(projects.core.servicelocator),
+    Implementation(projects.core.viewmodel),
+    Implementation(projects.core.ui),
+
+    Api(projects.feature.main.api),
+
+    Api(projects.feature.character.common.data.impl),
+    Api(projects.feature.character.details.domain.impl),
+    Api(projects.feature.character.details.presentation.impl),
+    Api(projects.feature.character.search.domain.impl),
+    Api(projects.feature.character.search.presentation.impl),
+
+    Api(projects.feature.film.common.data.impl),
+    Api(projects.feature.film.details.domain.impl),
+    Api(projects.feature.film.details.presentation.impl),
+
+    Api(projects.feature.planet.common.data.impl),
+    Api(projects.feature.planet.details.domain.impl),
+    Api(projects.feature.planet.details.presentation.impl),
+
+    Api(projects.feature.specie.common.data.impl),
+    Api(projects.feature.specie.details.domain.impl),
+    Api(projects.feature.specie.details.presentation.impl),
+
+    Api(projects.feature.starship.common.data.impl),
+    Api(projects.feature.starship.details.domain.impl),
+    Api(projects.feature.starship.details.presentation.impl),
+
+    Api(projects.feature.vehicle.common.data.impl),
+    Api(projects.feature.vehicle.details.domain.impl),
+    Api(projects.feature.vehicle.details.presentation.impl),
+
+    Implementation(libs.androidx.navigation3.runtime),
+    Implementation(libs.androidx.navigation3.ui),
+)

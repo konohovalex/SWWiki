@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_main_api_topics">Topics</string>
+    <string name="feature_main_api_error_state_message">Service unavailable</string>
+    <string name="feature_main_api_topic_characters">Characters</string>
+    <string name="feature_main_api_topic_films">Films</string>
+    <string name="feature_main_api_topic_planets">Planets</string>
+    <string name="feature_main_api_topic_species">Species</string>
+    <string name="feature_main_api_topic_starships">Starships</string>
+    <string name="feature_main_api_topic_vehicles">Vehicles</string>
+</resources>

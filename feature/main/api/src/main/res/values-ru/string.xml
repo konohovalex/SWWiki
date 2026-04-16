@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_main_api_topics">Разделы</string>
+    <string name="feature_main_api_error_state_message">Сервис недоступен</string>
+    <string name="feature_main_api_topic_characters">Персонажи</string>
+    <string name="feature_main_api_topic_films">Фильмы</string>
+    <string name="feature_main_api_topic_planets">Планеты</string>
+    <string name="feature_main_api_topic_species">Виды</string>
+    <string name="feature_main_api_topic_starships">Космические корабли</string>
+    <string name="feature_main_api_topic_vehicles">Транспортные средства</string>
+</resources>
