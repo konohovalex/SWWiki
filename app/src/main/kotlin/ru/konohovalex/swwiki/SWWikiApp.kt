@@ -20,7 +20,6 @@ import kotlin.reflect.KClass
 // TODO(splash screen)
 // TODO(swipe-to-refresh)
 // TODO(LAZY!!!)
-// TODO(SCOPES + Singleton => AppScope)
 // TODO(check data classes, which should not be data classes)
 // TODO(tests: Unit, UI)
 class SWWikiApp : Application(), ServiceLocator {

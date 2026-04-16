@@ -3,11 +3,9 @@ package ru.konohovalex.swwiki.feature.film.common.data.impl.di
 import dagger.Component
 import ru.konohovalex.swwiki.core.cache.di.ICacheComponent
 import ru.konohovalex.swwiki.core.database.di.IDatabaseComponent
-import ru.konohovalex.swwiki.core.di.qualifier.FeatureScope
 import ru.konohovalex.swwiki.core.network.di.INetworkComponent
 import ru.konohovalex.swwiki.feature.film.common.domain.api.IFilmDomainComponent
 
-@FeatureScope
 @Component(
     modules = [
         FilmDomainMapperModule::class,
